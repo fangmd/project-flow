@@ -6,9 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试页面</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <button id='normal-request-btn'>发起 Hello word 请求 http://127.0.0.1:3000</button>
+
+    <script>
+        $("#normal-request-btn").click(function () {
+            axios.get('http://127.0.0.1:3000')
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                })
+        })
+    </script>
 
 </body>
 
