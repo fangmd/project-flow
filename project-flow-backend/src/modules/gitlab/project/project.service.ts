@@ -28,14 +28,21 @@ export class ProjectService {
    * 获取项目列表
    */
   async getProjectList({ pageSize, pageNum, accessToken }): Promise<any> {
-    console.log(
-      `${gitlabBaseUrl}/projects?per_page=${pageSize}&page=${pageNum}&access_token=${accessToken}`,
-    );
-
+    console.log(`${gitlabBaseUrl}/api/v4/projects?per_page=${pageSize}&page=${pageNum}&access_token=${accessToken}`);
     const res = await this.httpService
-      .get(
-        `${gitlabBaseUrl}/api/v4/projects?per_page=${pageSize}&page=${pageNum}&access_token=${accessToken}`,
-      )
+      .get(`${gitlabBaseUrl}/api/v4/projects?per_page=${pageSize}&page=${pageNum}&access_token=${accessToken}`)
+      .pipe(map((resp) => resp.data))
+      .toPromise();
+    return res;
+  }
+
+  /**
+   * 获取单个项目
+   */
+  async getProject({ projectId, accessToken }): Promise<any> {
+    console.log(`${gitlabBaseUrl}/api/v4/projects/${projectId}?access_token=${accessToken}`);
+    const res = await this.httpService
+      .get(`${gitlabBaseUrl}/api/v4/projects/${projectId}?access_token=${accessToken}`)
       .pipe(map((resp) => resp.data))
       .toPromise();
     return res;

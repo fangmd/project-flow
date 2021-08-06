@@ -2,22 +2,38 @@
  * 结果相关函数
  */
 
-/**请求成功 code */
-export const SUCCESS_CODE = 0;
+import { SUCCESS_CODE } from 'src/constants';
+
+interface ResponseErrorArgs {
+  code: number;
+  data?: any;
+  msg: string;
+}
+
+
+/**结果返回类 */
+export class HttpResponse {
+  code: number;
+  msg: string;
+  data?: any;
+
+  constructor({ code, data, msg }) {
+    this.code = code;
+    this.data = data;
+    this.msg = msg;
+  }
+
+  get isSuccess() {
+    return this.code === SUCCESS_CODE;
+  }
+}
 
 /**请求成功 */
-export const success = (data) => {
-  return {
-    code: SUCCESS_CODE,
-    data,
-  };
+export const responseSuccess = (data?, msg?): HttpResponse => {
+  return new HttpResponse({ code: SUCCESS_CODE, data, msg });
 };
 
 /**请求失败 */
-export const error = ({ code, data, msg }) => {
-  return {
-    code,
-    data,
-    msg,
-  };
+export const responseError = ({ code, data, msg }: ResponseErrorArgs): HttpResponse => {
+  return new HttpResponse({ code, data, msg });
 };
