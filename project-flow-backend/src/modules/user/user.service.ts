@@ -34,4 +34,11 @@ export class UserService {
     }
     return this.usersRepository.findOne(findOpt);
   }
+
+  add(username: string, password: string): Promise<User> {
+    const user = new User();
+    user.username = username;
+    user.password = password;
+    return this.usersRepository.save(user);
+  }
 }

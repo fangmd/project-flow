@@ -22,6 +22,13 @@ export class UserController {
     return this.authService.certificate(authResult);
   }
 
+  @Post('register')
+  async register(@Body() params: any) {
+    const { username, password } = params;
+    const ret = await this.userService.add(username, password);
+    return responseSuccess(ret);
+  }
+
   @UseGuards(JwtAuthGuard)
   @Get()
   async getUserInfo(@Req() request: Request) {
