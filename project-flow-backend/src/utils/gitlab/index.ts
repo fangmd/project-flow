@@ -1,3 +1,3 @@
 import qs from 'qs';
 
-export const gitlabBaseUrl = 'http://127.0.0.1:9000';
+export const gitlabBaseUrl = 'http://192.168.79.130:9000';

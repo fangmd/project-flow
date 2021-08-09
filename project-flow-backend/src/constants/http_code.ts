@@ -10,6 +10,11 @@ export interface HttpCode {
   msg: string;
 }
 
+export const SERVER_ERROR: HttpCode = {
+  code: 5000,
+  msg: '服务器异常',
+};
+
 export const ACCOUNT_OR_PWD_ERROR: HttpCode = {
   code: 3000,
   msg: '账号或密码错误',

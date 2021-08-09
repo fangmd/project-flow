@@ -1,6 +1,6 @@
-
-
-token：b34f819f3f432d1acf02e75c880c993bd45be1381364a5e8b4fb957be3c465a2
+gitLab token: f28b30ba59f7d2a572d28efbfb2ef787e1ecfbaa02959ed482ad79983e5de314
+jenkins:admin,admin
+centos: root/admin, double/admin
 
 # TODO:
 

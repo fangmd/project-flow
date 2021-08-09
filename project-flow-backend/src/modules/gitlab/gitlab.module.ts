@@ -8,5 +8,6 @@ import { GitLabController } from './gitlab.controller';
   imports: [HttpModule],
   controllers: [GitLabController, ProjectController],
   providers: [GitLabService, ProjectService],
+  exports: [GitLabService, ProjectService],
 })
 export class GitLabModule {}
